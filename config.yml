@@ -1,0 +1,49 @@
+boss:
+
+  # NOTE: the vote party threshold is no longer configured here.
+  # GalacticVotes owns all vote tracking - see its "vote-party" section.
+  # When GalacticVotes' vote party threshold is reached, it calls into
+  # this plugin's BossManager directly and reads the spawn location
+  # below (boss.spawn) and the boss-spawn broadcast under "messages".
+
+  # Boss settings
+  name: "&5&lGalactic Wither"
+  health: 5000
+
+  # Money rewards (set to 0 to disable)
+  participant-reward: 5000
+  top-damage-reward: 10000
+
+  # Commands run as console
+  participant-commands:
+    - "eco give %player% 5000"
+
+  top-damage-commands:
+    - "cc give p custom 1 %player%"
+    - "broadcast &6%player% dealt the most damage and earned a Custom Key!"
+
+  # Attack settings (ticks)
+  skull-attack-interval: 80
+
+  # Minion settings
+  minion-spawn-interval: 400
+  zombies-per-wave: 4
+  skeletons-per-wave: 4
+  minion-health: 100
+
+  # Spawn location
+  spawn:
+    world: world
+    x: 0
+    y: 100
+    z: 0
+
+messages:
+
+  prefix: "&8[&5&lGalacticBosses&8] "
+
+  boss-spawn: "&5&lThe Galactic Wither has appeared!"
+  boss-death: "&dThe Galactic Wither has been defeated!"
+
+  participation-reward: "&aYou received $5,000 for participating!"
+  top-damage: "&6You dealt the most damage and received $10,000 + a Custom Key!"

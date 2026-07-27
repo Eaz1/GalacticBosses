@@ -1,0 +1,31 @@
+name: GalacticBosses
+version: 1.0.0
+main: me.eaz.galacticbosses.GalacticBosses
+author: Eaz
+description: Galactic Boss plugin for Spigot 1.12.2
+
+depend:
+  - Vault
+  - CrazyCrates
+
+softdepend:
+  - PlaceholderAPI
+
+commands:
+  boss:
+    description: Main Galactic Boss command.
+    usage: /boss
+    permission: galacticbosses.admin
+
+  bossinfo:
+    description: Shows the current boss information.
+    usage: /bossinfo
+
+  bosstop:
+    description: Shows the current boss damage leaderboard.
+    usage: /bosstop
+
+permissions:
+  galacticbosses.admin:
+    description: Access to all GalacticBosses admin commands.
+    default: op
