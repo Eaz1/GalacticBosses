@@ -1,0 +1,59 @@
+############################################################
+# Galactic Wither Minions
+# MythicMobs 4.13.0
+############################################################
+
+WitherZombie:
+  Type: ZOMBIE
+  Display: '&2Wither Minion'
+  Health: 100
+  Damage: 8
+
+  Equipment:
+    - IRON_HELMET:HEAD
+    - IRON_CHESTPLATE:CHEST
+    - IRON_LEGGINGS:LEGS
+    - IRON_BOOTS:FEET
+    - IRON_SWORD:HAND
+
+  Options:
+    AlwaysShowName: true
+    PreventOtherDrops: true
+    PreventMobKillDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+    FollowRange: 32
+
+  Skills:
+    - effect:particles{particle=SMOKE_NORMAL;amount=15;hS=0.5;vS=0.5} @self ~onSpawn
+
+  Drops:
+    - nothing
+
+
+WitherSkeleton:
+  Type: SKELETON
+  Display: '&7Wither Archer'
+  Health: 100
+  Damage: 8
+
+  Equipment:
+    - IRON_HELMET:HEAD
+    - IRON_CHESTPLATE:CHEST
+    - IRON_LEGGINGS:LEGS
+    - IRON_BOOTS:FEET
+    - BOW:HAND
+
+  Options:
+    AlwaysShowName: true
+    PreventOtherDrops: true
+    PreventMobKillDrops: true
+    PreventRandomEquipment: true
+    Despawn: true
+    FollowRange: 32
+
+  Skills:
+    - effect:particles{particle=SMOKE_NORMAL;amount=15;hS=0.5;vS=0.5} @self ~onSpawn
+
+  Drops:
+    - nothing

@@ -1,0 +1,40 @@
+############################################################
+# Galactic Wither Skills
+# MythicMobs 4.13.0
+############################################################
+
+WitherShoot:
+  Skills:
+    - sound{s=entity.wither.shoot;v=2;p=1} @self
+    - projectile{
+        bulletType=WITHER_SKULL;
+        velocity=2;
+        gravity=0;
+        hitPlayers=true;
+        hitNonPlayers=false;
+        hitRadius=1;
+        verticalOffset=2;
+        onHit=WitherExplosion
+      } @target
+
+WitherExplosion:
+  Skills:
+    - effect:particles{particle=EXPLOSION_LARGE;amount=1} @origin
+    - effect:sound{s=entity.generic.explode;v=2;p=1} @origin
+
+    # Damage players only
+    - damage{a=25} @PlayersInRadius{r=4}
+
+SummonWave:
+  Skills:
+    - message{m="&8[&5Boss&8] &7The &5Galactic Wither &7summons reinforcements!"} @PlayersInRadius{r=60}
+
+    # Spawn 4 zombies
+    - summon{type=WitherZombie;amount=4;radius=6} @self
+
+    # Spawn 4 skeletons
+    - summon{type=WitherSkeleton;amount=4;radius=6} @self
+
+    - effect:particles{particle=SMOKE_LARGE;amount=60;hS=2;vS=1} @self
+    - effect:particles{particle=SPELL_WITCH;amount=40;hS=2;vS=1} @self
+    - effect:sound{s=entity.wither.spawn;v=2;p=1} @self

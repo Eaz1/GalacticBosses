@@ -1,0 +1,47 @@
+WitherBoss:
+  Type: WITHER
+  Display: '&5&lGalactic Wither'
+  Health: 5000
+  Damage: 0
+
+  BossBar:
+    Enabled: true
+    Title: '&5&lGalactic Wither'
+    Range: 50
+    Color: PURPLE
+    Style: SEGMENTED_10
+
+  Modules:
+    ThreatTable: true
+
+  Options:
+    AlwaysShowName: true
+    NoAI: true
+    Silent: false
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    FollowRange: 40
+    PreventOtherDrops: true
+    PreventMobKillDrops: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventBlockInfection: true
+    PreventExplosionBlockDamage: true
+    PreventMobGriefing: true
+    PreventLeashing: true
+    PreventRenaming: true
+
+  Skills:
+    - effect:particles{particle=SMOKE_LARGE;amount=30;hS=1.5;vS=1} @self ~onSpawn
+    - effect:sound{s=entity.wither.spawn;v=2;p=1} @self ~onSpawn
+    - message{m="&8[&5Boss&8] &5The Galactic Wither has awakened!"} @PlayersInRadius{r=80} ~onSpawn
+
+    # Fire one wither skull every 4 seconds
+    - skill{s=WitherShoot} @target ~onTimer:80
+
+    # Summon minions every 20 seconds
+    - skill{s=SummonWave} @self ~onTimer:400
+
+  Drops:
+    - command{c="cc give <killer.name> Galactic 1"} 1
